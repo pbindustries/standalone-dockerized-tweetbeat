@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  twitterbeat:
+    build:
+      context: ./twitterbeat/
+      dockerfile: Dockerfile_twitterbeat
+    env_file:
+      - ./.env
+    restart: on-failure
+    volumes:
+      - ./twitterbeat/twitterbeat.yml:twitterbeat.yml
+
+# Persisting volumes
+volumes:
+  twitterbeat-volume:
